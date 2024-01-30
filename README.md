@@ -12,6 +12,3 @@ simple (cdn)react project, search for github users and display a variety of stat
 -stars/contribution amount for repos
 -follower list+amount
 </pre>
-![External Image](https://i.ibb.co/6R3jKbQ/github1.png)
-
-![External Image](https://i.ibb.co/wC8Npb9/github2.png)
