@@ -48,8 +48,14 @@ class App extends React.Component {
     );
   }
 
+  handleSeeAllClick = () => {
+    this.setState((prevState) => ({
+      visibleRepos: prevState.reposData.length,
+    }));
+  };
+
   render() {
-    const { username, userData, reposData, error } = this.state;
+    const { username, userData, reposData, error, visibleRepos } = this.state;
 
     return (
       <div>
@@ -94,13 +100,20 @@ class App extends React.Component {
         {reposData && (
           <div>
             <h3>Repositories:</h3>
-            <ul>
-              {reposData.map((repo) => (
-                <li key={repo.id}>
-                  <strong>{this.renderRepositoryLink(repo)}</strong> - {repo.description}
-                </li>
-              ))}
-            </ul>
+            <div className="repo-list-container">
+              <ul>
+                {reposData.slice(0, visibleRepos).map((repo) => (
+                  <li key={repo.id}>
+                    <strong>{this.renderRepositoryLink(repo)}</strong> - {repo.description}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {reposData.length > visibleRepos && (
+              <button className="see-all-button" onClick={this.handleSeeAllClick}>
+                See All
+              </button>
+            )}
           </div>
         )}
       </div>
