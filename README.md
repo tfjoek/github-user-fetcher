@@ -13,5 +13,4 @@ simple (cdn)react project, search for github users and display a variety of stat
 -clickable link for repos
 -follower list+amount
 </pre>
-![alt text]([http://url/to/img.png](https://i.ibb.co/6R3jKbQ/github1.png)https://i.ibb.co/6R3jKbQ/github1.png)
-
+![External Image](https://i.ibb.co/6R3jKbQ/github1.png)
