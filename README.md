@@ -7,7 +7,7 @@ simple (cdn)react project, search for github users and display a variety of stat
 <pre>
  todo:
 -error for not found user
--make it actually good
--stars/contribution amount for repos
+-make it actually good ui
 -follower list+amount
+-make into site
 </pre>
