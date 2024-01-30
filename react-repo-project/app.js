@@ -1,45 +1,53 @@
 class App extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        username: "",
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      userData: null,
+      reposData: null,
+      error: null,
+      visibleRepos: 2,
+    };
+  }
+
+  handleInputChange = (event) => {
+    this.setState({ username: event.target.value });
+  };
+
+  handleSearch = async () => {
+    const { username } = this.state;
+
+    try {
+      // user data fetch
+      const userResponse = await fetch(`https://api.github.com/users/${username}`);
+      const userData = await userResponse.json();
+
+      // user repo fetch
+      const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`);
+      const reposData = await reposResponse.json();
+
+      this.setState({
+        userData,
+        reposData,
+        error: null,
+      });
+    } catch (error) {
+      this.setState({
         userData: null,
         reposData: null,
-        error: null,
-        visibleRepos: 2,
-      };
+        error: "User not found",
+      });
     }
-  
-    handleInputChange = (event) => {
-      this.setState({ username: event.target.value });
-    };
-  
-    handleSearch = async () => {
-      const { username } = this.state;
-  
-      try {
-        // user data fetch
-        const userResponse = await fetch(`https://api.github.com/users/${username}`);
-        const userData = await userResponse.json();
-  
-        // user repo fetch
-        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`);
-        const reposData = await reposResponse.json();
-  
-        this.setState({
-          userData,
-          reposData,
-          error: null,
-        });
-      } catch (error) {
-        this.setState({
-          userData: null,
-          reposData: null,
-          error: "User not found",
-        });
-      }
-    };
-  
+  };
+
+  renderRepositoryLink(repo) {
+    return (
+      <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+        {repo.name}
+      </a>
+    );
+  }
+
   render() {
     const { username, userData, reposData, error } = this.state;
 
@@ -75,7 +83,6 @@ class App extends React.Component {
                 </div>
               </div>
               <h2>
-                {/* clickkaa nimee */}
                 <a href={`https://github.com/${userData.login}`} target="_blank" rel="noopener noreferrer">
                   @{userData.login}
                 </a>
@@ -90,7 +97,7 @@ class App extends React.Component {
             <ul>
               {reposData.map((repo) => (
                 <li key={repo.id}>
-                  <strong>{repo.name}</strong> - {repo.description}
+                  <strong>{this.renderRepositoryLink(repo)}</strong> - {repo.description}
                 </li>
               ))}
             </ul>
@@ -100,5 +107,3 @@ class App extends React.Component {
     );
   }
 }
-
-  
