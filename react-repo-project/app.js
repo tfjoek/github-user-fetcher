@@ -6,7 +6,7 @@ class App extends React.Component {
       userData: null,
       reposData: null,
       error: null,
-      visibleRepos: 2,
+      visibleRepos: 6,
     };
   }
 
@@ -69,7 +69,7 @@ class App extends React.Component {
           />
           <button onClick={this.handleSearch}>Search</button>
         </div>
-        {error && <p>{error}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
         {userData && (
           <div>
             <div className="user-info">
@@ -104,14 +104,17 @@ class App extends React.Component {
               <ul>
                 {reposData.slice(0, visibleRepos).map((repo) => (
                   <li key={repo.id}>
-                    <strong>{this.renderRepositoryLink(repo)}</strong> - {repo.description}
+                    <strong>
+                      {repo.stargazers_count} ⭐ {this.renderRepositoryLink(repo)}
+                    </strong>{" "}
+                    - {repo.description}
                   </li>
                 ))}
               </ul>
             </div>
             {reposData.length > visibleRepos && (
               <button className="see-all-button" onClick={this.handleSeeAllClick}>
-                See All
+                Load More
               </button>
             )}
           </div>
