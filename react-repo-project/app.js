@@ -6,6 +6,7 @@ class App extends React.Component {
         userData: null,
         reposData: null,
         error: null,
+        visibleRepos: 2,
       };
     }
   
