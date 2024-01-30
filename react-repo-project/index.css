@@ -116,3 +116,11 @@ body {
     border-top: none;
   }
   
+  .repo-list-container {
+    max-height: 200px; /* Adjust the max height as needed */
+    overflow-y: auto;
+  }
+  
+  .see-all-button {
+    margin-top: 10px;
+  }
