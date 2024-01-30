@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e6f7ff;
+    background-color: #cbd4ff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -20,7 +20,7 @@ body {
     color: #0099cc;
   }
   
-  .input-container {
+  .input-container, h1 {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -40,13 +40,13 @@ body {
   }
   
   input:hover {
-    border-color: #66cc99;
+    border-color: #2e85ff;
   }
   
   button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #66cc99;
+    background-color: #aebfff;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -55,7 +55,7 @@ body {
   }
   
   button:hover {
-    background-color: #4db080;
+    background-color: #2e85ff;
   }
   
   p {
