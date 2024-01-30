@@ -10,7 +10,6 @@ simple (cdn)react project, search for github users and display a variety of stat
 -dropdown for more than 6 repos
 -make it actually good
 -stars/contribution amount for repos
--clickable link for repos
 -follower list+amount
 </pre>
 ![External Image](https://i.ibb.co/6R3jKbQ/github1.png)
