@@ -8,10 +8,10 @@ simple (cdn)react project, search for github users and display a variety of stat
  todo:
 -error for not found user
 -dropdown for more than 6 repos
--make it look cool 
+-make it actually good
 -stars/contribution amount for repos
--follower list
+-clickable link for repos
+-follower list+amount
 </pre>
-
-
+![alt text]([http://url/to/img.png](https://i.ibb.co/6R3jKbQ/github1.png)https://i.ibb.co/6R3jKbQ/github1.png)
 
