@@ -1,7 +1,7 @@
 
 # github user search
 
-simple (cdn)react project, search for github users and display a variety of stats/info
+simple (cdn)react project, search for github users and display a variety of stats/info using github api
 
 [high wip has lot of issue and ugly]
 <pre>
