@@ -69,12 +69,12 @@ class App extends React.Component {
     const { username, userData, reposData, error, visibleRepos } = this.state;
 
     return (
-      // search page elements
+      // search page elements + search funtionality
       <div>
         <h1>
-          <img class="logotardi" src="logo.jpg" alt="GitHub Logo" style={{ height: '30px', marginRight: '10px' }} />
-          GitHub User Finder
+      GitHub User Finder        
         </h1>
+       
         <div className="input-container">
           <input
             type="text"
