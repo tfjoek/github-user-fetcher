@@ -13,19 +13,21 @@ class App extends React.Component {
   handleInputChange = (event) => {
     this.setState({ username: event.target.value });
   };
-
   handleSearch = async () => {
     const { username } = this.state;
-
+  
     try {
       // user data fetch
       const userResponse = await fetch(`https://api.github.com/users/${username}`);
+      if (!userResponse.ok) {
+        throw new Error('User not found');
+      }
       const userData = await userResponse.json();
-
+  
       // user repo fetch
       const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`);
       const reposData = await reposResponse.json();
-
+  
       this.setState({
         userData,
         reposData,
@@ -35,10 +37,11 @@ class App extends React.Component {
       this.setState({
         userData: null,
         reposData: null,
-        error: "User not found",
+        error: error.message, 
       });
     }
   };
+  
 
   renderRepositoryLink(repo) {
     return (
@@ -54,18 +57,31 @@ class App extends React.Component {
     }));
   };
 
+  handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.handleSearch();
+    }
+  };
+  
+  
+
   render() {
     const { username, userData, reposData, error, visibleRepos } = this.state;
 
     return (
+      // search page elements
       <div>
-        <h1>GitHub User Finder</h1>
+        <h1>
+          <img class="logotardi" src="logo.jpg" alt="GitHub Logo" style={{ height: '30px', marginRight: '10px' }} />
+          GitHub User Finder
+        </h1>
         <div className="input-container">
           <input
             type="text"
             placeholder="Enter GitHub username"
             value={username}
             onChange={this.handleInputChange}
+            onKeyDown={this.handleKeyDown}
           />
           <button onClick={this.handleSearch}>Search</button>
         </div>
