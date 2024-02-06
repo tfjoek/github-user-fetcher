@@ -1,6 +1,7 @@
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #cbd4ff;
+    background: linear-gradient(109.6deg, rgb(204, 228, 247) 11.2%, rgb(237, 246, 250) 100.2%);
     margin: 0;
     padding: 0;
     display: flex;
@@ -25,6 +26,8 @@ body {
     justify-content: center;
     margin-bottom: 20px;
   }
+
+
   
   .input-container.centered {
     justify-content: center;
@@ -60,6 +63,7 @@ body {
   
   p {
     color: #555;
+    font-family: 'Poppins', sans-serif;
   }
   
   .user-info {
@@ -117,7 +121,7 @@ body {
   }
   
   .repo-list-container {
-    max-height: 200px; /* Adjust the max height as needed */
+    max-height: 200px; 
     overflow-y: auto;
   }
   
